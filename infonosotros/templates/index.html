@@ -1,0 +1,46 @@
+<!-- Carga todo el contenido estético de la carpeta static-->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/normalize.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <!--La manera en que se escribe href es para acceder al archivo css-->
+    <title>Base de datos alumnos</title>
+</head>
+<body>
+    <header>
+        <h1 class="nombre-pagina">Ingeniería en Inteligencia Artificial</h1>
+    </header>
+    <h2>Alumnos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Número de boleta</th>
+                <th>Promedio general</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--Similar a un ciclo for en python, muestra los datos de la lista "alumnos"-->
+            {% for alumn in alumnos %}
+            <tr>
+                <td>{{ alumn.nombre }} {{ alumn.apellido_paterno }} {{ alumn.apellido_materno }}</td>
+                <td>{{ alumn.edad }}</td>
+                <td>{{ alumn.num_boleta }}</td>
+                <td>{{ alumn.promedio_general }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
